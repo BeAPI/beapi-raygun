@@ -1,0 +1,26 @@
+{
+  "name": "beapi/raygun",
+  "description": "Beapi implemenation for Raygun",
+  "type": "wordpress-plugin",
+  "require": {
+    "mindscape/raygun4php": "1.*"
+  },
+  "authors": [
+    {
+      "name": "BeAPI",
+      "email": "technique@beapi.fr",
+      "homepage": "https://beapi.fr",
+      "role": "Company"
+    },
+    {
+      "name": "Nicolas Juen",
+      "email": "njuen@beapi.fr"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "src/",
+      "beapi-raygun.php"
+    ]
+  }
+}
