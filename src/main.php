@@ -17,12 +17,22 @@ class Main {
 			return;
 		}
 
-		$classes = [
-			JS::class,
-			PHP::class,
+		$trackers = [
+			'js' => JS::class,
+			'php' => PHP::class,
 		];
 
-		foreach ( $classes as $class ) {
+		/**
+		 * Filters the trackers loaded by the plugin.
+		 *
+		 * @param array $trackers List of trackers.
+		 *
+		 * @since 1.0.1
+		 *
+		 */
+		$trackers = apply_filters( 'beapi_raygun_trackers', $trackers );
+
+		foreach ( $trackers as $class ) {
 			$cclass     = new $class();
 			$interfaces = class_implements( $cclass );
 
