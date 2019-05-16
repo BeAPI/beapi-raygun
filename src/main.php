@@ -18,7 +18,7 @@ class Main {
 		}
 
 		$trackers = [
-			'js' => JS::class,
+			'js'  => JS::class,
 			'php' => PHP::class,
 		];
 
