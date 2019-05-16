@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: BEAPI Raygun
-Version: 1.0.0
+Version: 1.0.1
 Plugin URI: https://beapi.fr
 Description: Straighforward Raygun implementation for WordPress.
 Author: Be API Technical team
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Plugin constants
-define( 'BEAPI_RAYGUN_VERSION', '1.0.0' );
+define( 'BEAPI_RAYGUN_VERSION', '1.0.1' );
 
 // Plugin URL and PATH
 define( 'BEAPI_RAYGUN_URL', plugin_dir_url( __FILE__ ) );
