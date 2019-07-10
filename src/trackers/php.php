@@ -22,6 +22,9 @@ class PHP implements Hookable, Bootable {
 		$options      = $this->get_options();
 		$this->client = new RaygunClient( $options['apiKey'], true, false, false );
 		$this->client->SetVersion( $options['setVersion'] );
+		if ( ! empty( $options['filteredParams'] ) && is_array( $options['filteredParams'] ) ) {
+			$this->client->setFilterParams( $options['filteredParams'] );
+		}
 
 		// Setup Exceptions and error handlers
 		set_exception_handler( [ $this, 'exception_handler' ] );
@@ -61,10 +64,16 @@ class PHP implements Hookable, Bootable {
 	public function get_options() {
 
 		$default = [
-			'apiKey'      => BEAPI_RAYGUN_API_KEY,
-			'setVersion'  => get_bloginfo( 'version' ),
-			'withTags'    => [ 'PHP' ],
-			'enablePulse' => false,
+			'apiKey'         => BEAPI_RAYGUN_API_KEY,
+			'setVersion'     => get_bloginfo( 'version' ),
+			'withTags'       => [ 'PHP' ],
+			'enablePulse'    => false,
+			'filteredParams' => [
+				'/DB_NAME/i'     => true,
+				'/DB_USER/i'     => true,
+				'/DB_PASSWORD/i' => true,
+				'/DB_HOST/i'     => true,
+			],
 		];
 
 		if ( function_exists( 'wp_get_current_user' ) ) {
